@@ -24,11 +24,15 @@ import com.dawn.java.util.PathUtil;
 // com.dawn.java.serializable.Person@6d311334 [ name=张三, age=30, id=null, father=李一 ]
 
 /*************** Serializable Externalizable 序列化执行过程日志分析 *****************/
+// Serializable 是自动序列化机制，所有未声明transient修饰符的对象成员变量（非static、非final）全部会被序列化
 //com.dawn.java.serializable.SerializablePerson@7852e922 [ name=张三, age=30, id=421127118902171234, father=张二, mother=王五 ]
 //com.dawn.java.serializable.SerializablePerson@682a0b20 [ name=张三, age=30, id=null, father=李一, mother=王五 ]
 //
+// Externalizable 是手动配置的序列化机制，指定的 age、id、father（对象成员变量、static变量）全部被序列化
 //com.dawn.java.serializable.ExternalizablePerson@3d075dc0 [ name=张三, age=30, id=421127118902171234, father=张二, mother=王五 ]
 //com.dawn.java.serializable.ExternalizablePerson@3b9a45b3 [ name=test, age=30, id=421127118902171234, father=张二, mother=王五 ]
+//
+// mother 是final类型变量，未手动指定，由于final是不可变对象，类加载、对象创建时就已经赋值（无法再通过反射修改），因此不需要被序列化。
 
 public class SerializableMain {
 
