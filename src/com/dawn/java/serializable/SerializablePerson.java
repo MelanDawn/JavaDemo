@@ -48,8 +48,7 @@ public class SerializablePerson implements Serializable {
 	public String toString() {
 		StringBuilder sb = new StringBuilder();
 		sb.append(super.toString()).append(" [").append(" name=").append(name).append(", age=").append(age)
-				.append(", id=").append(id).append(", father=").append(father).append(", mother=").append(mother)
-				.append(" ]");
+				.append(", id=").append(id).append(", father=").append(father).append(", mother=").append(mother).append(" ]");
 		return sb.toString();
 	}
 }
