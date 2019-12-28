@@ -1,8 +1,10 @@
 package com.dawn.design.pattern.singleton;
 
-import com.dawn.java.util.Print;
+import com.dawn.utils.Log;
 
 public class SingletonMain {
+
+	private static final String TAG = "SingletonMain";
 
 	public static void main(String[] args) {
 		/*
@@ -11,10 +13,10 @@ public class SingletonMain {
 		 * 3、静态内部类（不可防止反射、序列化）；
 		 * 4、枚举（最佳实践，可防止反射、序列化）。
 		 */
-		Print.println(SingletonLazy.getInstance().toString());
-		Print.println(SingletonImmediately.getInstance().toString());
-		Print.println(SingletonByInnerClass.getInstance().toString());
-		Print.println(SingletonBySdk.getInstance().toString());
-		Print.println(SingletonByEnum.INSTANCE.getLocalName());
+		Log.d(TAG, SingletonLazy.getInstance().toString());
+		Log.d(TAG, SingletonImmediately.getInstance().toString());
+		Log.d(TAG, SingletonByInnerClass.getInstance().toString());
+		Log.d(TAG, SingletonBySdk.getInstance().toString());
+		Log.d(TAG, SingletonByEnum.INSTANCE.getLocalName());
 	}
 }
